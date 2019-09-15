@@ -1,0 +1,46 @@
+<%- include('partials/header'); -%>
+
+<form action="/users/login" method="POST">
+    <label for="name"></label>
+    <input 
+    type="text"
+    id="name"
+    name="name"
+    class="login-name-input"
+    placeholder="Enter your name"
+    value="<%= typeof name != 'undefined' ? name : '' %>"
+    />
+    <label for="email"></label>
+    <input 
+    type="email"
+    id="email"
+    name="email"
+    class="login-email-input"
+    placeholder="Enter your email"
+    value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+    <label for="password"></label>
+    <input 
+    type="password"
+    id="password"
+    name="password"
+    class="login-password-input"
+    placeholder="Enter password"
+    value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+    <label for="confirm_password"></label>
+    <input 
+    type="confirm_password"
+    id="confirm_password"
+    name="confirm_password"
+    class="login-password-input"
+    placeholder="confirm password"
+    value="<%= typeof confirm_password != 'undefined' ? confirm_password : '' %>"
+    />
+    <div class="btn btn-primary">
+        <button type="submit">Login</button>
+    </div>
+     <p class="Text-small-light">Don't have an account? <a href="/users/register">Register</a> </p>
+</form>
+
+<%- include('partials/footer'); -%>

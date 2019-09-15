@@ -1,0 +1,29 @@
+<%- include('partials/header'); -%>
+
+<%- include('partials/messages'); -%>
+
+    
+    <form action="/users/register" method="POST">
+        <label for="first_name"></label>
+        <input type="text" id="first_name" name="first_name" class="login-name-input" placeholder="First name" value="<%= typeof first_name != 'undefined' ? first_name : '' %>"
+        />
+        <input type="text" id="last_name" name="last_name" class="login-name-input" placeholder="Last name" value="<%= typeof last_name != 'undefined' ? last_name : '' %>"
+        />
+        <label for="email"></label>
+        <input type="email" id="email" name="email" class="login-email-input" placeholder="Enter your email" value="<%= typeof email != 'undefined' ? email : '' %>"
+        />
+        <label for="password"></label>
+        <input type="password" id="password" name="password" class="login-password-input" placeholder="Enter password" value="<%= typeof password != 'undefined' ? password : '' %>"
+        />
+        <label for="password_confirmation"></label>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="login-password-input" placeholder="confirm password"
+            value="<%= typeof password_confirmation != 'undefined' ? password_confirmation : '' %>" />
+        <div class="btn btn-primary">
+            <button type="submit">Register</button>
+        </div>
+        <p class="Text-small-light">Have an account?
+            <a href="/users/login">Login</a>
+        </p>
+    </form>
+
+    <%- include('partials/footer'); -%>
