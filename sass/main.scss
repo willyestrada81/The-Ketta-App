@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Crimson+Pro:400,700|Lora&display=swap');
+@import 'colors';
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
+} 
 
 body {
     margin: 0;
@@ -19,9 +20,310 @@ body {
     text-decoration: none;
 }
 
-@import 'colors';
-@import 'typography';
-@import 'utilities';
-@import 'hamburguer-menu';
-@import 'landing';
-@import 'restaurant-card';
+
+
+.banner {
+    width: 100vw;
+    height: 75vh;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../img/lily-banse--YHSwy6uqvk-unsplash.jpg");
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.logo-container img {
+    width: 90px;
+}
+
+.logo-container {
+    padding-top: 40px;
+    padding-left: 190px;
+}
+
+.banner-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-container h1 {
+    font-size: 4rem;
+    color: $white-greyish;
+}
+
+.banner-container h2 {
+    font-size: 2.5rem;
+    color: $white-greyish;
+    font-weight: lighter;
+}
+
+.banner-container {
+    input {
+        width: 400px;
+        height: 2.8rem;
+        padding-left: 3rem;
+        border-radius: 30px;
+        outline: none;
+        border: none;
+        font-style: italic;
+    }
+    #city-input {
+        width: 200px;
+    }
+    .city-input {
+        position: relative;
+        display: inline-block;
+        i {
+            position: absolute;
+            left: 1rem;
+            top: .7rem;
+            font-size: 1.5rem;
+            opacity: .6;
+            color: $cool-grey;
+        }
+    }
+}
+
+.search {
+    position: relative;
+}
+
+.search i {
+    position: absolute;
+    left: 1rem;
+    top: .7rem;
+    font-size: 1.5rem;
+    opacity: .6;
+    color: $cool-grey;
+}
+
+.search-button {
+    width: 120px;
+    height: 2.8rem;
+    padding: .8rem 1.5rem;
+    border-radius: 30px;
+    letter-spacing: .8px;
+    border: none;
+    font-size: 1rem;
+    font-variant: small-caps;
+    background: $shamrock-green;
+    font-weight: 300;
+}
+
+.small-card-container {
+    position: absolute;
+    width: 70%;
+    height: 100px;
+    background: $orangey-red;
+    top: 103%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.small-card-container i {
+    font-size: 4rem;
+    padding-top: 1rem;
+    opacity: .4;
+}
+
+#main {
+    height: 130vh;
+    background-image: url('/img/main-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sub-title h3 {
+    font-size: 3.5rem;
+    color: $battleship-grey;
+    margin-top: 38rem;
+    text-align: center;
+    &::after {
+        content: "";
+        width: 13rem;
+        height: .1rem;
+        background: $light-grey-blue;
+    }
+}
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 20% 15% 0 15%;
+    width: 100%;
+}
+
+.restaurant-card {
+    width: 100%;
+    background-color: $white-greyish;
+    border-radius: 10px;
+    box-shadow: 0 24px 50px 0px rgba(0, 0, 0, 0.071);
+}
+
+.card-photo img {
+    width: 100%;
+    height: 600px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.card-info {
+    display: block;
+    position: relative;
+    .isOpen {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: Avenir;
+        font-size: 14px;
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.7px;
+        color: $shamrock-green;
+        background: $white-80;
+        padding: 5px 10px;
+        font-variant: small-caps;
+    }
+    .isClose {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: Avenir;
+        font-size: 14px;
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.7px;
+        color: $orangey-red;
+        background: $white-80;
+        padding: 5px 10px;
+        font-variant: small-caps;
+    }
+}
+
+.card-info p {
+    font-family: Avenir;
+    font-size: 34px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: $shamrock-green;
+    display: inline-block;
+    padding: 22px 0 0 22px;
+    margin: 0;
+}
+
+.card-info h6 {
+    font-family: Avenir;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    color: $dark-grey-2;
+    padding: 22px;
+    margin: 0;
+}
+
+.stats-container {
+    width: 100%;
+    height: 80.5px;
+    border-radius: 0 0 10px 10px;
+    background-color: $ice-blue;
+    align-self: end;
+    position: relative;
+    .link {
+        
+        position: absolute;
+        top: 30px;
+        right: 60px;
+    }
+    a {
+        padding: .8rem 1.5rem;
+        border-radius: 30px;
+        letter-spacing: .8px;
+        border: none;
+        font-size: 1rem;
+        font-variant: small-caps;
+        background: $shamrock-green;
+        font-weight: 300;
+        text-decoration: none;
+        color: $almost-black;
+    }
+}
+
+.fa-star {
+    width: 30px;
+    height: 28.4px;
+    opacity: 0.5;
+    color: $grey;
+    position: absolute;
+    top: 25px;
+    left: 60px;
+}
+
+.-Likes {
+    opacity: 0.5;
+    font-family: Avenir;
+    font-size: 26px !important;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $grey !important;
+    position: absolute;
+    top: 3px;
+    left: 90px;
+}
+
+.fa-comment {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    color: $grey;
+    position: absolute;
+    top: 25px;
+    left: 260px;
+}
+
+.-Comments {
+    opacity: 0.5;
+    font-family: Avenir;
+    font-size: 26px !important;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $grey !important;
+    position: absolute;
+    top: 3px;
+    left: 290px;
+}
+
+.card-map {
+    width: 100%; // background-color: $white-greyish;
+    border-radius: 10px;
+    box-shadow: 0 24px 50px 0px rgba(0, 0, 0, 0.071);
+    #map {
+        width: 100%;
+        height: 833px;
+        border-radius: 10px;
+    }
+}

@@ -30,13 +30,6 @@ app.use('/users', require('./routes/users')); //IMPORT ROUTES FROM THE INDEX.JS 
 
 
 
-
-
-
-
-
-
-
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`)    
 })

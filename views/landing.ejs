@@ -1,36 +1,7 @@
 <%- include('partials/header'); -%>
 
 <header class="banner">
-    <nav>
-        <div class="mobile-menu">
-            <div class="menu-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-            </div>
-            <nav class="menu">
-                <div class="menu-branding">
-                    <div class="portait">
-
-                    </div>
-                </div>
-                <ul class="menu-nav">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#about-me" class="nav-link">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#projects" class="nav-link">My Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#contact" class="nav-link">Contact me</a>
-                    </li>
-                </ul>
-        </div>
-        </nav>
-    </nav>
+    
     <div>
         <div class="logo-container">
             <img src="/img/logo.png" alt="logo ketta app">
@@ -39,11 +10,17 @@
 
             <h1>Hungry?</h1>
             <h2>See the deliciousness near you...</h2>
-            <form action="" class="search">
-                <input type="text" placeholder="I'm hungry, please...">
+            <form action="/" method="post" class="search">
+                <input id="search_term" type="text" placeholder="restaurant name" name="restaurantName" required>
                 <i class="fas fa-search"></i>
-                <button type="submit">Search</button>
+                <div class="city-input">
+                    <input id="city-input" type="text" placeholder="city" name="city">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            
+                <button class="search-button" type="submit">Search</button>
             </form>
+            <!-- <h2 class="sm-heading">or browse some of our categories</h2> -->
         </div>
     </div>
     <div class="small-card-container">
@@ -61,26 +38,5 @@
         </div>
     </div>
 
-</header>
-<main id="main" class="container">
-    <h3>See Our Top Picks</h3>
-    <div class="restaurant-card">
-        <div class="card-photo">
-            <img src="/img/photo-1.jpeg" alt="">
-        </div>
-        <div class="card-info">
-            <img src="/img/profile-avatar.png" alt="">
-            <p>Ana Guevara</p>
-            <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h6>
-        </div>
-        <div class="stats-container">
-            <i class="far fa-heart"></i>
-            <i class="far fa-comment"></i>
-            <p class="-Likes">123 Likes</p>
-            <p class="-Comments">4567 Comments</p>
-        </div>
-    </div>
-</main>
-    
 <%- include('partials/footer'); -%>
 

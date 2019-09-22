@@ -1,61 +1,67 @@
 const express = require("express")
 const router = express.Router();
+const GoogleAPI = require('../config/keys').GoogleAPI;
+const axios = require('axios');
 
+//Landing Page
 router.get('/', (req, res) => {
-    res.render("landing")
+    res.render('landing')
 })
 
-// INDEX ROUTE -- SHOW LIST OF CAMPGROUNDS
-router.get('/campgrounds', (req, res) => {
-    // const campgrounds = Campground.find({}, (err, campgrounds) => {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         res.render("index.ejs", { campgrounds: campgrounds });
-    //     }
-    // })
-    res.send("Welcome");
-});
 
-// NEW ROUTE -- SHOW THE FORM TO CREATE A NEW CAMPGROUNDS
-router.get("/campgrounds/new", (req, res) => {
-    res.render("new_campground");
-});
 
-// CREATE ROUTE -- CREATE A NEW CAMPGROUNDS
-router.post("/campgrounds", (req, res) => {
-    let campground_name = req.body.name;
-    let campground_image = req.body.image;
-    let campground_description = req.body.description;
 
-    Campground.create(
-        { name: campground_name, image: campground_image, description: campground_description },
-        (err, campgrounds) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Campground Created Successfully");
-                res.redirect("/campgrounds");
+router.post('/', (req, res) => {
+  
+    let queryParams = {
+        input: req.body.restaurantName + '%20' + req.body.city,
+        inputtype: 'textquery',
+        fields: 'place_id,photos,formatted_address,name,rating,opening_hours,geometry,icon,user_ratings_total',
+        APIkey: GoogleAPI
+    }
+    let requestURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${queryParams.input}&inputtype=${queryParams.inputtype}&fields=${queryParams.fields}&key=${queryParams.APIkey}`
+    
+    let responseData = []
+    let photoURL = ''
+ 
+    axios.get(requestURL)
+        .then(function (response) {
+            
+            let candidates = response.data.candidates;
+
+            for(var i = 0; i < candidates.length; i++){
+                responseData[i] = {
+                    formatted_address: candidates[i].formatted_address,
+                    geometry: candidates[i].geometry.location,
+                    name: candidates[i].name,
+                    opening_hours: candidates[i].opening_hours,
+                    rating: candidates[i].rating,
+                    photos: candidates[i].photos[i],
+                    user_ratings_total: candidates[i].user_ratings_total
+                }
+                
             }
-        }
-    );
-});
 
-// SHOW -- SHOW MORE INFO ABOUT ONE CAMPGROUND
-router.get('/campgrounds/:id', (req, res) => {
-    // FIND THE CAMPGROUND BY THE ID
-    let campground_id = req.params.id;
-
-    //RENDER THE SHOW TEMPLATE WITH THAT CAMPGROUND
-    Campground.findById({ _id: campground_id }, (err, campground) => {
-        if (err) {
-            console.log(err)
-        } else {
-            res.render("show", { campground: campground });
-        }
-    })
-
-
+        }).then(() => {
+            let photoReference = responseData[0].photos.photo_reference; 
+            photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1100&photoreference=${photoReference}&key=${queryParams.APIkey}`;
+         
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            console.log(responseData)
+            // console.log(responseData);
+            res.render("index", {
+                restaurantData: responseData,
+                restaurantPhoto: photoURL
+                
+            })
+            
+        });
+    
 })
 
 module.exports = router;

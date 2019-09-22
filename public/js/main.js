@@ -1,48 +1,33 @@
-// Select DOM items
 
-const menuBtn = document.querySelector('.menu-btn');
-const menu = document.querySelector('.menu');
-const menuBranding = document.querySelector('.menu-branding');
-const menuNav = document.querySelector('.menu-nav');
-const navItems = document.querySelectorAll('.nav-item');
+function initMap() {
 
-//Set initial state of menu
-
-let showMenu = false;
-
-menuBtn.addEventListener('click', toggleMenu);
-
-navItems.forEach(item => item.addEventListener('click', () => {
-    menuBtn.classList.remove('close');
-    menu.classList.remove('show');
-    menuBranding.classList.remove('show');
-    menuNav.classList.remove('show');
-    navItems.forEach(item => item.classList.remove('show'));
-
-    showMenu = false;
-}));
-
-
-function toggleMenu() {
-    if(!showMenu) {
-        menuBtn.classList.add('close');
-        menu.classList.add('show');
-        menuBranding.classList.add('show');
-        menuNav.classList.add('show');
-        navItems.forEach(item => item.classList.add('show'));
-        
-        showMenu = true;
-
-    } else {
-        menuBtn.classList.remove('close');
-        menu.classList.remove('show');
-        menuBranding.classList.remove('show');
-        menuNav.classList.remove('show');
-        navItems.forEach(item => item.classList.remove('show'));
-
-        showMenu = false;
+    //Map Options
+    let options = {
+        zoom: 18,
+        center: { lat: 25.75343, lng: -80.258618 },
     }
+    let map = new google.maps.Map(document.getElementById('map'), options);
+
+    // Add marker
+    let marker = new google.maps.Marker({
+        position: { lat: 25.75343, lng: -80.258618 },
+        map: map,
+        icon: '/img/map.png'
+    })
 }
 
+// function activatePlacesSearch() {
+//     var input = document.getElementById('search_term');
+//     var options = { types: ['restaurant'] }
+//     var autocomplete = new google.maps.places.Autocomplete(input, options);
+// }
+// API Config
+let key = API_KEYS.GOOGLE_API;
+let key2 = API_KEYS.AUTOCOMLETEKEY;
+let src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
+let googleAPI = document.getElementById('googleAPI');
+googleAPI.src = src;
 
-
+// let autoCompleteSRC = `https://maps.googleapis.com/maps/api/js?key=${key2}&libraries=places&callback=activatePlacesSearch`;
+// let autocomplete = document.getElementById('autoComplete');
+// autocomplete.src = autoCompleteSRC;
