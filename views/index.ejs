@@ -54,18 +54,18 @@
                         <div class="card-info">
 
                             <p>
-                                <%=restaurant.name %>
+                                <%#=restaurant.name %>
                             </p>
                             <h6>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <%=restaurant.formatted_address %>
+                                <%#=restaurant.formatted_address %>
                             </h6>
                             <div class="open-status">
-                                <% if(restaurant.opening_hours.open_now == true){ %>
+                                <%# if(restaurant.opening_hours.open_now == true){ %>
                                     <span class="isOpen">Open</span>
-                                    <% } else { %>
+                                    <%# } else { %>
                                         <span class="isClose">Closed</span>
-                                        <% } %>
+                                        <%# } %>
                             </div>
 
                         </div>
@@ -73,10 +73,10 @@
                             <i class="far fa-star fa-2x"></i>
                             <i class="far fa-comment fa-2x"></i>
                             <p class="-Likes">
-                                <%=restaurant.rating %>
+                                <%#=restaurant.rating %>
                             </p>
                             <p class="-Comments">
-                                <%=restaurant.user_ratings_total %> Reviews</p>
+                                <%#=restaurant.user_ratings_total %> Reviews</p>
                                 <div class="link">
                                     <a class="search-button" href="#" target="_blank">See more 
                                         <i class="fas fa-external-link-alt"></i>
@@ -85,7 +85,7 @@
                                 
                         </div>
                     </div>
-                    <% }) %>
+                    <%# }) %>
             </div>
             <div class="card-map">
                 <div id="map">

@@ -11,10 +11,10 @@
             <h1>Hungry?</h1>
             <h2>See the deliciousness near you...</h2>
             <form action="/" method="post" class="search">
-                <input id="search_term" type="text" placeholder="restaurant name" name="restaurantName" required>
+                <input id="search_term" type="text" placeholder="What would you like to eat? (Ex. pizza...)" name="keyword" required>
                 <i class="fas fa-search"></i>
                 <div class="city-input">
-                    <input id="city-input" type="text" placeholder="city" name="city">
+                    <input id="city-input" type="text" placeholder="city" name="location">
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
             
@@ -37,6 +37,7 @@
             <i class="fas fa-glass-cheers"></i>
         </div>
     </div>
+</header>
 
 <%- include('partials/footer'); -%>
 

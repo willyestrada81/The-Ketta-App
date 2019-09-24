@@ -11,7 +11,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: #E3E7F2;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
@@ -26,6 +26,15 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative; }
+
+.show-banner {
+  width: 100vw;
+  height: 55vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../img/show-banner-bg.jpg");
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 .logo-container img {
   width: 90px; }
@@ -48,6 +57,19 @@ body {
   font-size: 2.5rem;
   color: #fafafa;
   font-weight: lighter; }
+
+.show-banner-container h2 {
+  font-size: 3.5rem;
+  color: #fafafa;
+  font-weight: 700;
+  padding-top: 5rem; }
+
+.show-banner-container h3 {
+  font-size: 2.5rem;
+  color: #fafafa;
+  font-weight: lighter;
+  text-align: center;
+  padding-top: 5rem; }
 
 .banner-container input {
   width: 400px;
@@ -95,6 +117,27 @@ body {
   background: #00d46a;
   font-weight: 300; }
 
+.show-search-button {
+  margin-top: 3rem;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.show-search-button a {
+  padding: .8rem 1.5rem;
+  border-radius: 30px;
+  letter-spacing: .8px;
+  border: none;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  background: #00d46a;
+  font-weight: 300;
+  text-decoration: none !important;
+  color: #e6f0f2;
+  margin-top: 3rem; }
+
 .small-card-container {
   position: absolute;
   width: 70%;
@@ -113,11 +156,8 @@ body {
   opacity: .4; }
 
 #main {
-  height: 130vh;
-  background-image: url("/img/main-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
+  height: auto;
+  margin-top: -10rem; }
 
 .sub-title h3 {
   font-size: 3.5rem;
@@ -130,160 +170,188 @@ body {
     height: .1rem;
     background: #a0b2b8; }
 
-.card-container {
+.restaurant-card-container {
+  width: 80%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-content: center;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+  grid-auto-rows: 380px;
+  grid-gap: 5rem;
   align-items: center;
-  justify-items: center;
-  padding: 20% 15% 0 15%;
-  width: 100%; }
+  justify-content: center; }
 
 .restaurant-card {
-  width: 100%;
   background-color: #fafafa;
   border-radius: 10px;
-  box-shadow: 0 24px 50px 0px rgba(0, 0, 0, 0.071); }
+  box-shadow: 0 24px 50px 0px rgba(0, 0, 0, 0.071);
+  position: relative; }
 
 .card-photo img {
   width: 100%;
-  height: 600px;
+  height: 150px;
   border-radius: 10px 10px 0 0;
   overflow: hidden; }
 
 .card-info {
   display: block;
-  position: relative; }
-  .card-info .isOpen {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: Avenir;
-    font-size: 14px;
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 1.7px;
-    color: #00d46a;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    font-variant: small-caps; }
-  .card-info .isClose {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: Avenir;
-    font-size: 14px;
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 1.7px;
-    color: #fa3a37;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    font-variant: small-caps; }
+  position: absolute; }
 
-.card-info p {
+.restaurant-name {
+  position: absolute;
+  top: 20px; }
+
+.isOpen {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: Avenir;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.7px;
+  color: #00d46a;
+  background: rgba(0, 40, 7, 0.612);
+  padding: 5px 10px;
+  font-variant: small-caps; }
+
+.isClosed {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: Avenir;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.7px;
+  color: #fa3a37;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  font-variant: small-caps; }
+
+.restaurant-card p {
   font-family: Avenir;
   font-size: 34px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
-  color: #00d46a;
+  line-height: normal;
+  color: #df7b00;
   display: inline-block;
-  padding: 22px 0 0 22px;
-  margin: 0; }
+  margin: 0;
+  padding: 20px; }
 
-.card-info h6 {
+.restaurant-card h6 {
+  height: 150px;
   font-family: Avenir;
   font-size: 26px;
-  font-weight: 900;
+  font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.19;
   letter-spacing: normal;
-  color: #313e47;
+  color: #313e47b6;
   padding: 22px;
   margin: 0; }
 
 .stats-container {
   width: 100%;
-  height: 80.5px;
+  height: 70px;
   border-radius: 0 0 10px 10px;
   background-color: #e6f0f2;
-  align-self: end;
-  position: relative; }
+  position: absolute;
+  top: 300px; }
   .stats-container .link {
-    position: absolute;
-    top: 30px;
-    right: 60px; }
-  .stats-container a {
-    padding: .8rem 1.5rem;
-    border-radius: 30px;
-    letter-spacing: .8px;
-    border: none;
-    font-size: 1rem;
-    font-variant: small-caps;
-    background: #00d46a;
-    font-weight: 300;
-    text-decoration: none;
-    color: #050706; }
+    position: inherit;
+    top: -40px;
+    right: 20px; }
+    .stats-container .link a {
+      padding: .5rem .8rem;
+      border-radius: 30px;
+      letter-spacing: .8px;
+      border: none;
+      font-size: .8rem;
+      font-variant: small-caps;
+      background: #00d46a;
+      font-weight: 300;
+      text-decoration: none;
+      color: #050706; }
 
 .fa-star {
-  width: 30px;
-  height: 28.4px;
+  width: 20px;
+  height: 20px;
   opacity: 0.5;
   color: #3d484f;
-  position: absolute;
-  top: 25px;
-  left: 60px; }
+  position: inherit;
+  top: 30px;
+  left: 25px;
+  font-size: 1.1rem !important; }
 
 .-Likes {
   opacity: 0.5;
   font-family: Avenir;
-  font-size: 26px !important;
+  font-size: 1.1rem !important;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
   color: #3d484f !important;
-  position: absolute;
-  top: 3px;
-  left: 90px; }
+  position: inherit;
+  top: 8px;
+  left: 38px; }
 
 .fa-comment {
   width: 20px;
   height: 20px;
   opacity: 0.5;
   color: #3d484f;
-  position: absolute;
-  top: 25px;
-  left: 260px; }
+  position: inherit;
+  top: 30px;
+  left: 160px;
+  font-size: 1.1rem !important; }
 
 .-Comments {
   opacity: 0.5;
   font-family: Avenir;
-  font-size: 26px !important;
+  font-size: 1.1rem !important;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
   color: #3d484f !important;
-  position: absolute;
-  top: 3px;
-  left: 290px; }
+  position: inherit;
+  top: 8px;
+  left: 173px; }
 
-.card-map {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 24px 50px 0px rgba(0, 0, 0, 0.071); }
-  .card-map #map {
-    width: 100%;
-    height: 833px;
-    border-radius: 10px; }
+.bottom {
+  height: 45vh;
+  margin-top: 5rem; }
+
+.bottom-container h2 {
+  font-size: 3.5rem;
+  color: #050706;
+  font-weight: 700;
+  padding-top: 5rem;
+  text-align: center; }
+
+.bottom-search-button {
+  margin-top: 3rem;
+  text-align: center; }
+
+.bottom-search-button a {
+  padding: .8rem 1.5rem;
+  border-radius: 30px;
+  letter-spacing: .8px;
+  border: none;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  background: #00d46a;
+  font-weight: 300;
+  text-decoration: none !important;
+  color: #e6f0f2; }
