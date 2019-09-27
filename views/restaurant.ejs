@@ -1,0 +1,111 @@
+<%- include('partials/header'); -%>
+
+<div class="top-bg-image"></div>
+<div class="show-search-button">
+    <a href="/">Search Another?</a>
+</div>
+<div class="info-container">
+    <div class="restaurant-details">
+        <div class="card-restaurant-info">
+            <div class="fb-share-button" data-href="http://localhost:5000/restaurant" data-layout="button"
+                data-size="small">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A5000%2Frestaurant%2Fhttp%3A%2F%2Flocalhost%3A5000%2Frestaurant%2F&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">Share</a>
+            </div>
+            <div class="name">
+                
+                <h4><%= restaurant.name %></h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <%= restaurant.formatted_address %>
+                </p> 
+            </div>
+            <div class="details">
+                <div class="hours-wrapper">
+                    <div class="hours">
+                        <% if(restaurant.opening_hours.open_now === true) { %>
+                            <p class="Open">Open</p>
+                            <%  } else if(restaurant.opening_hours.open_now === false) { %>
+                                <p class="Closed">Closed</p>
+                                <% } else { %>
+                                    <p class="Closed">Closed</p>
+                                    <% } %>
+                        <p>Today: 10:00 AM – 4:00 AM</p>
+                        <% if(restaurant.price_level == 1) { %>
+                            <p class="price-level">$</p>
+                            <%  } else if(restaurant.price_level == 2) { %>
+                                <p class="price-level">$$</p>
+                            <%  } else if(restaurant.price_level == 3) { %>
+                                <p class="price-level">$$$</p>
+                            <%  } else if(restaurant.price_level == 4) { %>
+                                <p class="price-level">$$$$</p>
+                                <% } else { %>
+                                    <p class="price-level">$$$$$</p>
+                                    <% } %>
+                    </div>
+                </div>
+               
+                <div class="stats-wrapper-container">
+                    <div class="stats-wrapper">
+                        <p class="rating"><i class="far fa-star fa-2x"></i> <%= restaurant.rating %></p>
+                        <p class="reviews">Reviews (<%= restaurant.user_ratings_total %>)</p>
+                        <p>
+                            <% let options = {lat: restaurant.geometry.location.lat, lng: restaurant.geometry.location.lng, place_id: restaurant.place_id} %>
+                          <% let url = `https://www.google.com/maps/search/?api=1&query=${options.lat},${options.lng}&query_place_id=${options.place_id}` %>
+                            <a href= <%= url %> target="_blank"</a>
+                                 Get directions
+                                <i class="fas fa-directions fa-3x"></i>
+                            </a> 
+                        </p>
+                            
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="show-map" id="map">
+        
+    </div>
+</div>
+    <div class="search-more">
+        <h2>Not what you're looking for?</h2>
+        <div class="bottom-search-button">
+            <a href="/">Search for More</a>
+        </div>
+    </div>
+
+<script>
+    function initMap() {
+        var lat = <%= restaurant.geometry.location.lat %>;
+        var lng = <%= restaurant.geometry.location.lng %>;
+        var center = { lat: lat, lng: lng };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: center,
+            scrollwheel: false
+        });
+        var contentString = `<strong><%= restaurant.name %><br /><%=restaurant.formattedAddress %></strong>`
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+</script>
+
+<!-- API KEY UNRESTRICTED BECAUSE WILL BE EXPOSED IN THE HTML -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUbJJwQcVVX1yO8SxV2-1R9nhpqQpWA90&callback=initMap"></script>
+
+
+
+<!-- Facebook share button -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=1101336886688482&autoLogAppEvents=1"></script>
+
+<%- include('partials/footer'); -%>

@@ -1,9 +1,9 @@
 <%- include('partials/header'); -%>
 
 <header class="show-banner">
-    <div class="banner-container" >
+    <div class="banner-container show" >
         <div class="show-banner-container">
-            <h2>See the deliciousness near you...</h2>
+            <h2>The good taste of food near you...</h2>
             <div class="show-search-button">
                 <a href="/">Search Another?</a>
             </div>
@@ -35,17 +35,17 @@
                             <%= restaurant.vicinity %>
                         </h6>
                         <div class="open-status">
-                           <% if(restaurant.opening_hours.open_now === true) { %>
+                           <% if(restaurant.opening_hours === undefined) { %>
+                                <span></span>
+                          <%  } else if(restaurant.opening_hours.open_now === true) { %>
                                 <span class="isOpen">Open</span>
-                          <%  } else if(restaurant.opening_hours.open_now === false) { %>
-                                <span class="isClosed">Closed</span>
-                           <% } else { %>
+                          <% } else  { %>
                             <span class="isClosed">Closed</span>
-                          <% } %>
+                         <% }%>
                         </div>
 
                         <div class="stats-container">
-                            <i class="far fa-star fa-2x"></i>
+                            <i class="far fa-star star fa-2x"></i>
                             <i class="far fa-comment fa-2x"></i>
                             <p class="-Likes">
                                <%= restaurant.rating %>

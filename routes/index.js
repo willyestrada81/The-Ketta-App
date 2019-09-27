@@ -46,40 +46,59 @@ let location = escapeRegex(req.body.location);
 
              let requestURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${queryParams.location.lat},${queryParams.location.lng}&radius=${queryParams.radius}&type=${queryParams.type}&keyword=${queryParams.keyword}&key=${queryParams.APIkey}`
     
-             let responseData
+             let responseData;
  
              axios.get(requestURL)
              .then(function (response) {
             
-            responseData = response.data.results;
-                 let totalResults = responseData.length;
+                responseData = response.data.results;
+                let totalResults = responseData.length;
 
             res.render("show", {
                 restaurantData: responseData,
                 totalResults: totalResults,
                 location: location
             })
-
-           
-              })
-                 .catch(function (error) {
-                    // handle error
-                     console.log(error);
                  })
-                .finally(function () {
-                console.log(responseData)
-                // // console.log(responseData);
-                // res.render("index", {
-                //     restaurantData: responseData
-                    
-                // })
-                
-        });
-    })
+                 .catch(function (error) {
+                     // handle error
+                     console.log(error);
+                     res.redirect('landing')
+                 })
+        }).catch(function (error) {
+            // handle error
+            console.log(error);
+            res.redirect('landing')
+        })
 })
 
 router.get('/restaurant/:id', (req, res) => {
-    res.send('<h1>Welcome to the show page</h1>')
+
+    
+    let options = {
+        APIkey: process.env.GoogleAPI,
+        fields: 'address_component,adr_address,formatted_address,geometry,icon,name,permanently_closed,photo,place_id,plus_code,type,url,utc_offset,vicinity,formatted_phone_number,opening_hours,website,price_level,rating,review,user_ratings_total',
+        place_id: req.params.id
+    }
+
+    let placeDetailURL = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${options.place_id}&fields=${options.fields}&key=${options.APIkey}`
+
+    axios.get(placeDetailURL)
+    .then(function(response) {
+        let restaurantDetails = response.data.result;
+        res.render('restaurant', {
+            restaurant: restaurantDetails
+            
+        })
+        console.log(response.data.result)
+    })
+    .catch(function(err) {
+        if(err) {
+            console.log(err)
+            res.redirect('landing')
+        }
+    })
+
 })
 
 module.exports = router;

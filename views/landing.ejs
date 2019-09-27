@@ -3,24 +3,27 @@
 <header class="banner">
     
     <div>
-        <div class="logo-container">
+        <!-- <div class="logo-container">
             <img src="/img/logo.png" alt="logo ketta app">
-        </div>
+        </div> -->
         <div class="banner-container">
-
-            <h1>Hungry?</h1>
-            <h2>See the deliciousness near you...</h2>
+            <h1 class="app-name">Ketta: You're local food guide</h1>
+            <h1>Feeling Hungry?</h1>
+            
             <form action="/" method="post" class="search">
-                <input id="search_term" type="text" placeholder="What would you like to eat? (Ex. pizza...)" name="keyword" required>
+                <input id="search_term" type="text" placeholder="(Ex. pizza...) or restaurant name" name="keyword" required>
                 <i class="fas fa-search"></i>
                 <div class="city-input">
-                    <input id="city-input" type="text" placeholder="city" name="location">
+                    <input id="city-input" type="text" placeholder="city" name="location" required>
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
             
                 <button class="search-button" type="submit">Search</button>
             </form>
-            <!-- <h2 class="sm-heading">or browse some of our categories</h2> -->
+            <div class="slogan">
+                <h2>Search the deliciousness near you...</h2>
+            </div>
+            
         </div>
     </div>
     <div class="small-card-container">

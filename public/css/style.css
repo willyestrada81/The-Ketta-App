@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Crimson+Pro:400,700|Lora&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat:300,400&display=swap");
 *,
 *::before,
 *::after {
@@ -6,8 +6,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
@@ -19,13 +19,14 @@ body {
 
 .banner {
   width: 100vw;
-  height: 75vh;
+  height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../img/lily-banse--YHSwy6uqvk-unsplash.jpg");
   background-color: #000000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative; }
+  position: relative;
+  overflow-y: hidden; }
 
 .show-banner {
   width: 100vw;
@@ -36,21 +37,19 @@ body {
   background-position: center;
   background-repeat: no-repeat; }
 
-.logo-container img {
-  width: 90px; }
-
-.logo-container {
-  padding-top: 40px;
-  padding-left: 190px; }
-
 .banner-container {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding-top: 8%; }
+  .banner-container .app-name {
+    font-family: "Great Vibes", cursive;
+    font-weight: lighter;
+    font-size: 4rem; }
 
 .banner-container h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #fafafa; }
 
 .banner-container h2 {
@@ -61,15 +60,16 @@ body {
 .show-banner-container h2 {
   font-size: 3.5rem;
   color: #fafafa;
-  font-weight: 700;
-  padding-top: 5rem; }
+  font-weight: 700; }
 
 .show-banner-container h3 {
   font-size: 2.5rem;
   color: #fafafa;
   font-weight: lighter;
-  text-align: center;
-  padding-top: 5rem; }
+  text-align: center; }
+
+.banner-container form {
+  margin-top: 4rem; }
 
 .banner-container input {
   width: 400px;
@@ -93,6 +93,9 @@ body {
     font-size: 1.5rem;
     opacity: .6;
     color: #99a9b3; }
+
+.slogan {
+  margin-top: 2rem; }
 
 .search {
   position: relative; }
@@ -118,10 +121,9 @@ body {
   font-weight: 300; }
 
 .show-search-button {
-  margin-top: 3rem;
   text-align: center;
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%); }
 
@@ -136,14 +138,14 @@ body {
   font-weight: 300;
   text-decoration: none !important;
   color: #e6f0f2;
-  margin-top: 3rem; }
+  margin-top: 1rem; }
 
 .small-card-container {
   position: absolute;
   width: 70%;
   height: 100px;
   background: #fa3a37;
-  top: 103%;
+  top: 96%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
@@ -172,7 +174,7 @@ body {
 
 .restaurant-card-container {
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
   grid-auto-rows: 380px;
@@ -204,7 +206,7 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-family: Avenir;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
@@ -220,7 +222,7 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-family: Avenir;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
@@ -233,7 +235,7 @@ body {
   font-variant: small-caps; }
 
 .restaurant-card p {
-  font-family: Avenir;
+  font-family: "Montserrat", sans-serif;
   font-size: 34px;
   font-weight: 400;
   font-style: normal;
@@ -247,7 +249,7 @@ body {
 
 .restaurant-card h6 {
   height: 150px;
-  font-family: Avenir;
+  font-family: "Montserrat", sans-serif;
   font-size: 26px;
   font-weight: 300;
   font-style: normal;
@@ -281,7 +283,7 @@ body {
       text-decoration: none;
       color: #050706; }
 
-.fa-star {
+.star {
   width: 20px;
   height: 20px;
   opacity: 0.5;
@@ -293,7 +295,7 @@ body {
 
 .-Likes {
   opacity: 0.5;
-  font-family: Avenir;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.1rem !important;
   font-weight: 300;
   font-style: normal;
@@ -355,3 +357,314 @@ body {
   font-weight: 300;
   text-decoration: none !important;
   color: #e6f0f2; }
+
+.top-bg-image {
+  width: 100%;
+  height: 45vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.071), rgba(0, 0, 0, 0.45)), url("../img/restaurant_page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; }
+
+.info-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  grid-auto-rows: minmax(560px, auto);
+  border-radius: 50px 0 50px 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  -webkit-box-shadow: 12px 12px 60px 10px #919191;
+  box-shadow: 12px 12px 60px 10px #919191; }
+
+.restaurant-details {
+  position: relative;
+  width: 80%;
+  height: 300px;
+  background: white;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 20px;
+  -webkit-box-shadow: 12px 12px 60px 10px #919191;
+  box-shadow: 12px 12px 60px 10px #919191; }
+
+.show-map {
+  border-radius: 0 0 50px 0;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.name {
+  position: relative; }
+
+.name::after {
+  content: "";
+  width: 90%;
+  height: .9px;
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translate(-50%);
+  background: #c4c4c4af; }
+
+.name h4 {
+  color: #020202;
+  font-size: 1.4rem;
+  padding: 2rem 0 1.4rem 2rem;
+  margin: 0; }
+
+.name p {
+  color: #717171;
+  font-size: 1.2rem;
+  margin: 0;
+  padding-left: 2rem; }
+
+.details {
+  position: relative; }
+
+.card-restaurant-info {
+  position: relative; }
+  .card-restaurant-info .fb-share-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5rem; }
+
+.Open {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.7px;
+  color: #00d46a;
+  padding: 5px 10px;
+  font-variant: small-caps; }
+
+.Closed {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.7px;
+  color: #fa3a37;
+  padding: 5px 10px;
+  font-variant: small-caps; }
+
+.hours-wrapper {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 90%;
+  margin-bottom: 2rem;
+  border-bottom: #c4c4c4af 1px solid; }
+
+.hours {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .hours p {
+    display: inline-block;
+    font-size: 1rem;
+    padding: .8rem 2rem .8rem .8rem; }
+
+.hours::after {
+  content: "";
+  height: .9px;
+  transform: translate(-50%);
+  background: #c4c4c4af; }
+
+.stats-wrapper-container {
+  position: absolute;
+  top: 120px;
+  width: 100%; }
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .stats-wrapper p,
+  .stats-wrapper i {
+    font-size: 1rem;
+    color: #aeaeaec1; }
+  .stats-wrapper p > a {
+    text-decoration: none;
+    color: #aeaeaec1; }
+
+.search-more {
+  margin-top: 600px;
+  margin-bottom: 100px; }
+  .search-more h2 {
+    font-size: 3.5rem;
+    color: #050706;
+    font-weight: 700;
+    text-align: center; }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .banner-container {
+    display: block;
+    padding-top: 4%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center; }
+    .banner-container .app-name {
+      font-family: "Great Vibes", cursive;
+      font-weight: lighter;
+      font-size: 2rem; }
+  .banner-container h1 {
+    font-size: 1.5rem;
+    color: #fafafa; }
+  .banner-container h2 {
+    font-size: 1.5rem;
+    color: #fafafa;
+    font-weight: lighter; }
+  .show-banner-container h2 {
+    font-size: 2.5rem;
+    color: #fafafa;
+    font-weight: 700; }
+  .show-banner-container h3 {
+    font-size: 1.5rem;
+    color: #fafafa;
+    font-weight: lighter;
+    text-align: center; }
+  .banner-container form {
+    margin-top: 4rem; }
+  .banner-container input {
+    width: 90%;
+    height: 2.8rem;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-style: italic;
+    margin-bottom: 1rem; }
+  .banner-container #city-input {
+    width: 90%; }
+  .banner-container .city-input {
+    position: relative;
+    display: inline-block; }
+    .banner-container .city-input i {
+      position: absolute;
+      left: 1rem;
+      top: .7rem;
+      font-size: 1.5rem;
+      opacity: .6;
+      color: #99a9b3; }
+  .slogan {
+    margin-top: 2rem; }
+    .slogan h2 {
+      font-size: 1.5rem; }
+  .search {
+    position: relative; }
+  .search i {
+    position: absolute;
+    left: 1rem;
+    top: .7rem;
+    font-size: 1.5rem;
+    opacity: .6;
+    color: #99a9b3; }
+  .search-button {
+    width: 120px;
+    height: 2.8rem;
+    padding: .8rem 1.5rem;
+    border-radius: 30px;
+    letter-spacing: .8px;
+    border: none;
+    font-size: 1rem;
+    font-variant: small-caps;
+    background: #00d46a;
+    font-weight: 300; }
+  .small-card-container {
+    position: absolute;
+    width: 100%;
+    height: 80px; }
+  .small-card-container i {
+    font-size: 2.5rem;
+    padding: .5rem;
+    opacity: .4; }
+  .show {
+    padding-top: 20% !important; }
+  .show-search-button {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .show-search-button a {
+    padding: .6rem 1rem;
+    border-radius: 30px;
+    letter-spacing: .8px;
+    border: none;
+    font-size: .8rem;
+    font-variant: small-caps;
+    background: #00d46a;
+    font-weight: 300;
+    text-decoration: none !important;
+    color: #e6f0f2; }
+  .show-banner-container h2 {
+    font-size: 2rem; }
+  .show-banner-container h3 {
+    font-size: 1.5rem; }
+  #main {
+    margin-top: -6rem; }
+  .bottom-container h2 {
+    font-size: 1.5rem;
+    color: #050706;
+    font-weight: 700;
+    padding-top: 2rem;
+    text-align: center; }
+  .restaurant-card-container {
+    width: 80%;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 350px));
+    grid-gap: 2rem;
+    align-items: center;
+    justify-content: center; }
+  .restaurant-card p {
+    font-size: 24px;
+    padding: 25px; }
+  .restaurant-card h6 {
+    font-size: 20px;
+    padding: 15px; }
+  .-Comments {
+    font-size: .8rem !important; }
+  .-Likes {
+    font-size: .8rem !important;
+    top: 12px; }
+  .info-container {
+    width: 60%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    grid-auto-rows: minmax(260px, auto);
+    border-radius: 50px 0 50px 0;
+    display: block;
+    grid-template-columns: 2fr 1fr;
+    -webkit-box-shadow: 12px 12px 60px 10px #919191;
+    box-shadow: 12px 12px 60px 10px #919191; }
+  .hours-wrapper {
+    position: absolute;
+    left: 30px;
+    width: 90%;
+    margin-bottom: 2rem;
+    border-bottom: #c4c4c4af 1px solid; }
+  .hours p {
+    display: inline-block;
+    font-size: .6rem;
+    padding: .2rem 2rem .2rem .2rem; }
+  .stats-wrapper p,
+  .stats-wrapper i {
+    font-size: .8rem;
+    color: #aeaeaec1; } }
