@@ -23,13 +23,13 @@
             <div class="details">
                 <div class="hours-wrapper">
                     <div class="hours">
-                        <% if(restaurant.opening_hours.open_now === true) { %>
-                            <p class="Open">Open</p>
-                            <%  } else if(restaurant.opening_hours.open_now === false) { %>
-                                <p class="Closed">Closed</p>
-                                <% } else { %>
-                                    <p class="Closed">Closed</p>
-                                    <% } %>
+                    <% if(restaurant.opening_hours === undefined) { %>
+                        <span></span>
+                        <%  } else if(restaurant.opening_hours.open_now === true) { %>
+                            <span class="Open">Open</span>
+                            <% } else  { %>
+                                <span class="Closed">Closed</span>
+                                <% }%>
                         <p>Today: 10:00 AM – 4:00 AM</p>
                         <% if(restaurant.price_level == 1) { %>
                             <p class="price-level">$</p>
