@@ -1,10 +1,10 @@
-
+require('dotenv').config()
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose'); 
 
 //MONGO DB CONFIG
-const mongoDB = require('./config/keys').MongoURI;
+const mongoDB = process.env.MongoURI;
 
 //CONNECT TO MONGODB USING MONGOOSE
 mongoose.connect(mongoDB, { useNewUrlParser: true })
