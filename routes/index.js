@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require("express")
 const router = express.Router();
-const GoogleAPI = require('../config/keys').GoogleAPI;
+const GoogleAPI = process.env.GoogleAPI;
 const axios = require('axios');
 var NodeGeocoder = require('node-geocoder');
 
